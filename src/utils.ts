@@ -1,6 +1,7 @@
 export class ExtractFromStream extends TransformStream {
 	buffer: string;
 	dataKey: string;
+	//where dataKey holds generated text from the source stream
 	constructor(dataKey: string) {
 		super({
 			transform: (chunk, controller) => this.transform(chunk, controller),
