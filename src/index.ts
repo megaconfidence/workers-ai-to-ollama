@@ -17,7 +17,7 @@ export default {
 
 		const url = new URL(request.url);
 
-		if (url.hostname !== 'localhost') {
+		if (!['localhost', '127.0.0.1', '0.0.0.0'].includes(url.hostname)) {
 			//proxy to ollama on localhost
 			return fetch(`http://localhost:11434${url.pathname}`, request);
 		} else {
